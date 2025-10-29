@@ -27,7 +27,7 @@ app.add_middleware(
     allow_origins=[
         "http://localhost:3000",
         "http://127.0.0.1:3000",
-        "https://pshycology-frontend.vercel.app",  # <-- your actual Vercel URL
+        "https://pshycology-frontend01.vercel.app",  # <-- your actual Vercel URL
     ],
     allow_credentials=False,
     allow_methods=["*"],
