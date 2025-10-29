@@ -79,7 +79,7 @@ class Query(BaseModel):
 
 @app.get("/")
 async def root():
-    return {"status": "ok", "message": "Psych Assist backend", "docs": "/docs"}
+    return {"message": "Psychology backend running on Render!"}
 
 @app.post("/chat")
 async def chat(q: Query):
@@ -152,7 +152,7 @@ async def upload(files: List[UploadFile] = File(...), reindex: bool = FastAPIQue
                 "error": "Embeddings not configured. Set OPENAI_API_KEY or USE_LOCAL_EMBEDDINGS=1",
             }
         try:
-            ingest_data(data_dir="../data")
+            ingest_data(data_dir="./data")
             # force retriever refresh on next request
             global _retriever
             _retriever = None
@@ -167,7 +167,7 @@ async def reindex():
     if not OPENAI_API_KEY and not USE_LOCAL_EMBEDDINGS:
         return {"status": "error", "message": "Embeddings not configured. Set OPENAI_API_KEY or USE_LOCAL_EMBEDDINGS=1"}
     try:
-        ingest_data(data_dir="../data")
+        ingest_data(data_dir="./data")
         global _retriever
         _retriever = None
         return {"status": "ok", "message": "reindexed"}

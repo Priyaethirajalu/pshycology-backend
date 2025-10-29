@@ -13,7 +13,7 @@ OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY")
 PERSIST_DIR = "chroma_db"
 USE_LOCAL = os.environ.get("USE_LOCAL_EMBEDDINGS", "0") == "1"
 
-def ingest_data(data_dir="../data"):
+def ingest_data(data_dir="./data"):
     # Resolve data directory relative to this file and ensure it exists
     base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), data_dir))
     os.makedirs(base_dir, exist_ok=True)
